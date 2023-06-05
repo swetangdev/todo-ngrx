@@ -1,0 +1,11 @@
+<div>
+    <div>
+        <div *ngIf="isLoading$ | async; else todoList">Loading...</div>
+        <div *ngIf="isError$ | async as error">{{ isError$ }}</div>
+        <ng-template #todoList>
+            <ul *ngIf="allTodos$ | async">
+                <li *ngFor="let todo of allTodos$ | async">{{ todo.content }}</li>
+            </ul>
+        </ng-template>
+    </div>
+</div>
